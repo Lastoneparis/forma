@@ -126,13 +126,28 @@ footer .links a{margin-left:20px}
 .page strong{color:var(--text)}
 .page .cta-row{margin:18px 0 8px}
 
+/* hero screenshot */
+.hero-shot{width:300px;max-width:80vw;height:auto;border-radius:30px;
+  box-shadow:0 40px 90px rgba(0,0,0,.55),0 0 0 1px var(--line);display:block}
+
+/* screenshot strip */
+.shots{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:920px;margin:0 auto}
+.shots figure{margin:0}
+.shots img{width:100%;height:auto;border-radius:22px;box-shadow:0 24px 60px rgba(0,0,0,.5),0 0 0 1px var(--line);display:block}
+.shots figcaption{text-align:center;color:var(--muted);font-size:14px;margin-top:12px;font-weight:600}
+.mac-shot{max-width:920px;margin:40px auto 0}
+.mac-shot img{width:100%;height:auto;border-radius:18px;box-shadow:0 30px 70px rgba(0,0,0,.5),0 0 0 1px var(--line);display:block}
+
 @media(max-width:860px){
   .hero .wrap{grid-template-columns:1fr;text-align:center}
   .hero .cta{justify-content:center}
   .hero p.lead{margin-left:auto;margin-right:auto}
   .hero .badges{text-align:center}
+  .hero .art{margin-top:14px}
+  .hero-shot{margin:0 auto}
   .grid{grid-template-columns:1fr}
   .hero h1{font-size:40px}
   nav .links{display:none}
   .canvas-card{width:280px;height:360px}
+  .shots{grid-template-columns:1fr;max-width:340px}
 }
