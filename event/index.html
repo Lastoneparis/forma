@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FORMA — Drawing Challenge</title>
+<meta name="description" content="Join the FORMA Drawing Challenge. Open FORMA to start today's creative prompt — a fast, private drawing studio for iPhone, iPad and Mac.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://lastoneparis.github.io/forma/event/">
+<!-- Open Graph -->
+<meta property="og:title" content="FORMA — Drawing Challenge">
+<meta property="og:description" content="Open FORMA to start today's creative prompt.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lastoneparis.github.io/forma/event/">
+<style>
+  :root{ --bg:#0E0E0F; --card:#1A1A1D; --text:#F2F0EB; --muted:#8B8B9A;
+         --crimson:#FF3B5C; --line:#26262B; --radius:18px; }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ background:var(--bg); color:var(--text); min-height:100vh;
+        font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+        display:flex; align-items:center; justify-content:center; padding:24px;
+        background-image:radial-gradient(900px 500px at 50% -10%, rgba(255,59,92,.18), transparent 70%); }
+  .card{ width:100%; max-width:440px; background:var(--card); border:1px solid var(--line);
+         border-radius:var(--radius); padding:40px 30px; text-align:center; }
+  .badge{ display:inline-flex; align-items:center; gap:7px; font-size:13px; font-weight:700;
+          color:var(--crimson); background:rgba(255,59,92,.13); border:1px solid rgba(255,59,92,.32);
+          padding:7px 14px; border-radius:999px; letter-spacing:.02em; }
+  h1{ font-size:34px; font-weight:800; margin:22px 0 12px; letter-spacing:-.02em; }
+  p.lead{ font-size:17px; color:var(--muted); line-height:1.5; margin-bottom:30px; }
+  .btn{ display:block; width:100%; padding:16px; border-radius:14px; font-size:16px; font-weight:700;
+        text-decoration:none; transition:transform .12s ease, opacity .12s ease; }
+  .btn:active{ transform:scale(.985); }
+  .btn-primary{ background:var(--crimson); color:#fff; margin-bottom:12px; }
+  .btn-secondary{ background:transparent; color:var(--text); border:1px solid var(--line); }
+  .hint{ margin-top:22px; font-size:13px; color:var(--muted); }
+  .mark{ margin-top:30px; font-size:12px; letter-spacing:.28em; color:var(--muted); font-weight:700; }
+  a.plain{ color:var(--crimson); text-decoration:none; }
+</style>
+</head>
+<body>
+  <main class="card">
+    <span class="badge">✦ Drawing Challenge</span>
+    <h1>Today's prompt is waiting.</h1>
+    <p class="lead">Open FORMA to start a fresh canvas with this week's creative challenge — then share what you make.</p>
+
+    <a class="btn btn-primary" id="openApp" href="forma://event">Open in FORMA</a>
+    <a class="btn btn-secondary" href="https://apps.apple.com/app/id6780394110">Get FORMA — free</a>
+
+    <p class="hint">If FORMA is installed, this page opens it automatically.</p>
+    <div class="mark">FORMA</div>
+  </main>
+
+  <script>
+    // Best-effort: if the app is installed, the universal link already opened it before
+    // this page rendered. As a fallback for users who reach the web page directly, nudge
+    // the custom scheme once. We never auto-redirect to the App Store (avoids surprising
+    // users who don't want the install) — the button is there for that.
+    (function () {
+      try {
+        var ua = navigator.userAgent || "";
+        var isApple = /iPhone|iPad|iPod|Macintosh/.test(ua);
+        if (isApple) {
+          // Slight delay so the page paints first; opening the scheme is harmless if absent.
+          setTimeout(function () { window.location.href = "forma://event"; }, 350);
+        }
+      } catch (e) { /* no-op */ }
+    })();
+  </script>
+</body>
+</html>
